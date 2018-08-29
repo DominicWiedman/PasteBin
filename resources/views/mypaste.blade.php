@@ -1,5 +1,7 @@
+@extends('layouts.app')
 @section('content')
     <div class="container">
+        {{--@if(Auth::id() === \App\Paste::all()->get(user_id))--}}
         @foreach($pastes as $paste)
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -15,5 +17,6 @@
                 </div>
             </div><br>
         @endforeach
+            {{--@endif--}}
     </div>
 @endsection

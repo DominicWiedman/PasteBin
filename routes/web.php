@@ -12,18 +12,19 @@
 */
 
 Route::get('/', 'MainController@index' )->name('paste.create');
-Route::post('/', 'MainController@store' )->name('paste.store');
-
+Route::post('/paste', 'PasteController@store' )->name('paste.store');
+Route::get('/paste/{hash}', 'PasteController@show')->name('paste.show');
+//Route::get('/paste', 'PasteController@paste');
 
 Auth::routes();
-
+Route::get('mypaste', 'PasteController@mypaste')->name('mypaste');
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('ulogin', 'UloginController@login');
-Route::get('/paste/{random_url}', 'MainController@paste')->name('paste');
-Route::get('auth/redirect/{provider}', 'SocialAuthController@redirect');
-Route::get('auth/callback/{provider}', 'SocialAuthController@callback');
-Route::get('google', function () {
-    return view('googleAuth');
-});
-Route::get('auth/google', 'Auth\AuthController@redirectToGoogle');
-Route::get('auth/google/callback', 'Auth\AuthController@handleGoogleCallback');
+//Route::get('/paste/{hash}', 'MainController@paste')->name('paste.show');
+//Route::get('auth/redirect/{provider}', 'SocialAuthController@redirect');
+//Route::get('auth/callback/{provider}', 'SocialAuthController@callback');
+//Route::get('google', function () {
+//    return view('googleAuth');
+//});
+//Route::get('auth/google', 'Auth\AuthController@redirectToGoogle');
+//Route::get('auth/google/callback', 'Auth\AuthController@handleGoogleCallback');
