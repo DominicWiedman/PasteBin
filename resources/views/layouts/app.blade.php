@@ -40,16 +40,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        {{--@auth--}}
-                            {{--<a href="{{ url('/auth/logout') }}">Logout</a>--}}
-                            {{--@else--}}
-                            {{--<li class="nav-item">--}}
-                                {{--<a class="nav-link" href="{{ url('/auth/redirect/github') }}">Login GitHub</a>--}}
-                            {{--</li>--}}
-                            {{--<li class="nav-item">--}}
-                                {{--<a class="nav-link" href="{{ url('/google') }}">Login Google</a>--}}
-                            {{--</li>--}}
-                        {{--@endauth--}}
+                        @auth
+                            <a href="{{ url('/auth/logout') }}">Logout</a>
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/auth/redirect/github') }}">Login GitHub</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/auth/google') }}">Login Google</a>
+                            </li>
+                        @endauth
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

@@ -5,7 +5,7 @@ namespace App\Http\ViewComposers;
 
 use App\Paste;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\View;
+use Illuminate\Contracts\View\View;
 
 
 class PastesComposer

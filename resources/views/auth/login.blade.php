@@ -1,7 +1,6 @@
 @extends('layouts.app')
-@yield('js')
+
 @section('content')
-    @include('auth.social')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -69,5 +68,4 @@
         </div>
     </div>
 </div>
-
 @endsection

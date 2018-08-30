@@ -33,7 +33,7 @@ class PasteController extends Controller
         return view('paste', ['paste' => $paste]);
     }
 
-    public function mypaste()
+    public function myPaste()
     {
         $pastes = Paste::paginate(10);
         return view('mypaste', ['pastes' => $pastes]);

@@ -42,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'google_id', 'provider', 'provider_id'
     ];
 
     /**
@@ -53,6 +53,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function addNew($input)
+    {
+        $check = static::where('google_id', $input['google_id'])->first();
+
+        if (is_null($check)){
+            return static::create($input);
+        }
+        return $check;
+    }
 
     public function pastes()
     {

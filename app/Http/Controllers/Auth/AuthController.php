@@ -78,22 +78,19 @@ class AuthController extends Controller
     {
 
         try {
-
             $user = Socialite::driver('google')->user();
-
-
-
+            $create['name'] = $user->getName();
+            $create['email'] = $user->getEmail();
+            $create['google_id'] = $user->getId();
             $userModel = new \App\User();
-
             $createdUser = $userModel->addNew($user);
-
             Auth::loginUsingId($createdUser->id);
 
             return redirect()->route('home');
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
-            return redirect('auth/facebook');
+            return redirect('/auth/google');
 
         }
 
