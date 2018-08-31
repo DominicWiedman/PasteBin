@@ -11,17 +11,24 @@
 |
 */
 
+/* Роуты для добавления и ответа на запрос пасты */
 Route::get('/', 'MainController@index' )->name('paste.create');
 Route::post('/', 'PasteController@store' )->name('paste.store');
 Route::get('/{hash}', 'PasteController@show')->name('paste.show');
 
+/* Авторизация с регистрацией и страницей home, сгенерированная */
 Auth::routes();
-Route::get('/mypaste', 'PasteController@mypaste')->name('myPaste');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+/* Страница для отображения пасты пользователя */
+Route::get('/mypaste', 'PasteController@mypaste')->name('myPaste');
+
+/* Авторизация через Гитхаб */
 Route::get('auth/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('auth/callback/{provider}', 'SocialAuthController@callback');
 
+/* Авторизация через Гугл аккаунт */
 Route::get('google', function () {
     return view('googleAuth');
 });

@@ -9,6 +9,7 @@ use NunoMaduro\Collision\Provider;
 
 class SocialAuthController extends Controller
 {
+    /** Ответ сервиса на запрос */
     public function callback($provider)
     {
         $user = $this->createOrGetUser(Socialite::driver($provider));
@@ -21,6 +22,7 @@ class SocialAuthController extends Controller
         return Socialite::driver($provider)->redirect();
     }
 
+    /** запись данных пользователя в базу */
     private function createOrGetUser(Provider $provider)
     {
         $providerUser = $provider->user();
@@ -40,6 +42,7 @@ class SocialAuthController extends Controller
         return $user;
     }
 
+    /** завершение сессии авторизованного юзера */
     public function logout(Request $request)
     {
         \Auth::logout();

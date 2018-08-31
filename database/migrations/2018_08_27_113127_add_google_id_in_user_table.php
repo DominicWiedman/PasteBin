@@ -14,7 +14,7 @@ class AddGoogleIdInUserTable extends Migration
     public function up()
     {
         Schema::table('user', function (Blueprint $table) {
-//            $table->string('google_id');
+            $table->string('google_id');
         });
     }
 

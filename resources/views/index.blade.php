@@ -5,7 +5,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Добавить пасту</div>
-
                     <div class="card-body">
                         <form method="post" action="{{ route('paste.store') }}">
                             {{ csrf_field() }}
@@ -29,7 +28,6 @@
                                     @foreach($visibilities as $visibility)
                                         <option value="{{ $visibility->id }}">{{ $visibility->show_name }}</option>
                                     @endforeach
-
                                 </select><br>
                             @endif
                             <input type="submit" value="Опубликовать">

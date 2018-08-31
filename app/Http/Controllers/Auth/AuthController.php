@@ -64,6 +64,7 @@ class AuthController extends Controller
     }
 
 
+    /** редирект на гугл, с запросом */
     public function redirectToGoogle()
 
     {
@@ -73,15 +74,18 @@ class AuthController extends Controller
     }
 
 
+    /** ответ от гугла, с данными */
     public function handleGoogleCallback()
 
     {
 
+        /** запись данных пользователя в базу */
         try {
             $user = Socialite::driver('google')->user();
             $create['name'] = $user->getName();
             $create['email'] = $user->getEmail();
             $create['google_id'] = $user->getId();
+
             $userModel = new \App\User();
             $createdUser = $userModel->addNew($user);
             Auth::loginUsingId($createdUser->id);

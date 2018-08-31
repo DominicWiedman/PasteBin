@@ -5,9 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-
                 <div class="card-header">{{ $paste->title }}</div>
-
                 <div class="card-body">
                     <code type="text">{{ $paste->content }}</code><br>
                     <p>Ссылка на пасту</p>
@@ -18,8 +16,6 @@
                     </p>
                     <p>Срок действия</p>
                     <p>{{ $paste->available_at ? $paste->available_at->format('d.m.Y H:i') : 'Без ограничений'}}</p>
-
-
                 </div>
             </div>
         </div>
